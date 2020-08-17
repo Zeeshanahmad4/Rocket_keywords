@@ -1,0 +1,5 @@
+zproxy.lum-superproxy.io:22225:lum-customer-hl_5beb6ad7-zone-brazilzone1-ip-38.240.150.179:61jsjau13v75
+zproxy.lum-superproxy.io:22225:lum-customer-hl_5beb6ad7-zone-brazilzone1-ip-154.17.72.103:61jsjau13v75
+zproxy.lum-superproxy.io:22225:lum-customer-hl_5beb6ad7-zone-brazilzone1-ip-154.13.42.48:61jsjau13v75
+zproxy.lum-superproxy.io:22225:lum-customer-hl_5beb6ad7-zone-brazilzone1-ip-154.17.73.37:61jsjau13v75
+zproxy.lum-superproxy.io:22225:lum-customer-hl_5beb6ad7-zone-brazilzone1-ip-154.17.35.21:61jsjau13v75

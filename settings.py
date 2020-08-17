@@ -1,3 +1,3 @@
 
-BASE_DIR = "/Users/hst/Desktop/Current_Projects/Leadme"
-BROWSER_PROFILES = "/Users/hst/Desktop/Current_Projects/Leadme/linkedln_testing/profiles"
+BASE_DIR = "C:\\Users\\Shoaib\\Documents\\GitHub\\Rocket_keywords\\"
+BROWSER_PROFILES = "C:\\Users\\Shoaib\\Documents\\GitHub\\Rocket_keywords\\BrowserProfile\\"

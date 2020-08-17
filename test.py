@@ -3,6 +3,9 @@ import settings
 import zipfile
 from selenium import webdriver
 import time
+import threading
+from random import randint
+
 CHROME_EXT_MANIFEST = """
 {
     "version": "1.0.0",
@@ -50,7 +53,6 @@ chrome.webRequest.onAuthRequired.addListener(
     ['blocking']
 );
 """
-
 def browser_factory(proxy_username, proxy_password, proxy_port, proxy_ip, account_username='', account_password='', account_user_agent=''):
     
     directory = os.path.join(settings.BASE_DIR, 'linkedln_testing')
@@ -76,11 +78,13 @@ def browser_factory(proxy_username, proxy_password, proxy_port, proxy_ip, accoun
     options.add_argument('--disable-setuid-sendbox')
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--disable-accelerated-2d-canvas')
-    options.add_extension(extension)
+    #options.add_extension(extension)
+    # options.add_experimental_option("excludeSwitches", ['enable-automation']);
+
     
     if account_username:
         temp_dir = settings.BROWSER_PROFILES
-        user_dir_path = os.path.join(temp_dir, f'fli_scrapper_{account_username}')
+        user_dir_path = os.path.join(temp_dir,"TestProfile3")
         options.add_argument(f'--user-data-dir={user_dir_path}')
 
     prefs = {
@@ -93,7 +97,7 @@ def browser_factory(proxy_username, proxy_password, proxy_port, proxy_ip, accoun
     caps = webdriver.DesiredCapabilities.CHROME.copy()
     for key, value in caps.items():
         options.set_capability(key, value)
-    options.set_capability('pageLoadStrategy', 'none')
+    # options.set_capability('pageLoadStrategy', 'none')
     
     if account_user_agent:
         user_agent = account_user_agent
@@ -114,9 +118,21 @@ def browser_factory(proxy_username, proxy_password, proxy_port, proxy_ip, accoun
     
     return browser
 
+def startApp():
+    while True:
+        browser = browser_factory("lum-customer-shan_awan-zone-zee_20ip_test-ip-154.13.43.51","nzi95ca7p74r","22225",
+            "zproxy.lum-superproxy.io","Profile_2",
+            "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36")
 
-browser = browser_factory("dev_leadme_ca","0e5a74d083","30001","2.56.114.194","Profile_2","Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36")
-browser.get("https://www.linkedin.com/")
+        # time.sleep(8)
+        # browser.quit()
+browser = browser_factory("","","",
+    "","Profile_2",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36")
 
-
-
+browser.get('https://app.multiloginapp.com/WhatIsMyIP')
+count=0
+# while True:
+#     browser.get('https://www.google.com/search?q={}'.format(randint(0,10)))
+#     # time.sleep(1)
+#     print(count:=count+1)
